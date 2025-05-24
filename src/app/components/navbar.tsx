@@ -12,7 +12,7 @@ export default function Navbar() {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -125,20 +125,10 @@ export default function Navbar() {
                 ["Trending Now", "/faq"],
                 ["How it Works", "/faq"],
               ].map(([label, url], idx) => (
-                <Link
-                  key={idx}
-                  href={url}
-                  className="cursor-pointer
-                "
-                >
+                <Link key={idx} href={url} className="cursor-pointer">
                   {label}
                 </Link>
               ))}
-              {/* <a href="#">About Us</a>
-              <a href="#">Appliance Repair</a>
-              <a href="#">Home Services</a>
-              <a href="#">Trending Now</a>
-              <a href="#">How it Works</a> */}
             </nav>
           </div>
 

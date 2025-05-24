@@ -1,6 +1,12 @@
 import RepairServiceSlider from "@/app/components/Services/Slider";
-import RelatedServicesSlider from "@/app/components/Services/Slider";
 import { notFound } from "next/navigation";
+
+// Updated type to match Next.js App Router requirements
+type PageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
 
 const serviceDetails: Record<string, { title: string; desc: string }> = {
   "home-cleaning": {
@@ -139,11 +145,8 @@ function ServiceContent() {
   );
 }
 
-export default async function ServiceDetailsPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function ServiceDetailsPage({ params }: PageProps) {
+  // Await the params since it's now a Promise
   const { slug } = await params;
   const service = serviceDetails[slug];
 

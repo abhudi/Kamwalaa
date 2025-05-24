@@ -2,6 +2,12 @@ import { X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { MessageBubble } from "./MessageBubble";
 
+// Define the message type
+type Message = {
+  text: string;
+  from: "user" | "bot";
+};
+
 const TypingIndicator = () => {
   return (
     <div className="flex items-center space-x-1 p-2 rounded-lg bg-gray-100 w-fit max-w-[80%] ml-1">
@@ -22,7 +28,7 @@ const TypingIndicator = () => {
 };
 
 export const ChatWindow = ({ onClose }: { onClose: () => void }) => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<Message[]>([
     { text: "Hey there! How can I help you?", from: "bot" },
   ]);
   const [input, setInput] = useState("");
@@ -42,7 +48,7 @@ export const ChatWindow = ({ onClose }: { onClose: () => void }) => {
     if (!input.trim()) return;
 
     // Add user message instantly
-    const newMessages = [...messages, { text: input, from: "user" }];
+    const newMessages: Message[] = [...messages, { text: input, from: "user" }];
     setMessages(newMessages);
     setInput("");
 

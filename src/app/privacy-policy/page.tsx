@@ -1,8 +1,6 @@
 // pages/privacy-policy.js
 "use client";
 import { useState, useEffect } from "react";
-import Head from "next/head";
-import Link from "next/link";
 
 export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState("");
@@ -15,13 +13,14 @@ export default function PrivacyPolicy() {
 
       let currentActiveSection = "";
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+        const htmlSection = section as HTMLElement; // <-- cast here
+        const sectionTop = htmlSection.offsetTop;
+        const sectionHeight = htmlSection.offsetHeight;
         if (
           window.scrollY >= sectionTop - 100 &&
           window.scrollY < sectionTop + sectionHeight - 100
         ) {
-          currentActiveSection = section.getAttribute("id");
+          currentActiveSection = htmlSection.getAttribute("id") || "";
         }
       });
 
