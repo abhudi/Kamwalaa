@@ -5,7 +5,6 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 
 interface Service {
   img?: string; // optional image
@@ -23,14 +22,14 @@ export default function RepairServiceSlider({
     loop: false,
     slides: {
       perView: 7, // go big or go home
-      spacing: 6, // less spacing so more slides fit
+      spacing: 16, // less spacing so more slides fit
     },
     breakpoints: {
       "(max-width: 768px)": {
         slides: { perView: 2, spacing: 8 }, // keep mobile comfy
       },
       "(min-width: 769px)": {
-        slides: { perView: 7, spacing: 6 },
+        slides: { perView: 7, spacing: 16 },
       },
     },
   });
@@ -41,7 +40,7 @@ export default function RepairServiceSlider({
         {/* Left Arrow */}
         <button
           onClick={() => sliderInstanceRef.current?.prev()}
-          className="absolute -left-2 top-1/2 z-10 -translate-y-1/2 bg-white p-2 shadow rounded-full"
+          className="absolute -left-2 top-1/2 z-2 -translate-y-1/2 bg-white p-2 shadow rounded-full"
           aria-label="Previous slide"
         >
           <ChevronLeft />
@@ -73,7 +72,7 @@ export default function RepairServiceSlider({
         {/* Right Arrow */}
         <button
           onClick={() => sliderInstanceRef.current?.next()}
-          className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 bg-white p-2 shadow rounded-full"
+          className="absolute -right-2 top-1/2 z-2 -translate-y-1/2 bg-white p-2 shadow rounded-full"
           aria-label="Next slide"
         >
           <ChevronRight />

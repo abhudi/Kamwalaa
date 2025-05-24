@@ -47,7 +47,7 @@ export default function RepairService() {
   });
 
   return (
-    <div className="w-full px-4 py-10 bg-white relative">
+    <div className="w-full px-4 py-2 bg-white relative">
       <h2 className="text-2xl font-bold mb-6">New and noteworthy</h2>
 
       {/* Slider Container */}
@@ -64,7 +64,7 @@ export default function RepairService() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="keen-slider__slide bg-white rounded-md shadow p-3 min-h-[230px]"
+              className="keen-slider__slide bg-white rounded-md shadow p-3 min-h-[230px] my-2"
             >
               <Image
                 height={32}

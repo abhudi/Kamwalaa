@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className=" bg-[#f9f9f9] text-[#1a1a1a] pt-14 pb-10 px-6 md:px-16 border-t border-gray-200 mt-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {/* Column 1: Brand */}
         <div>
           {/* <Image src="/logo.svg" alt="Logo" width={100} height={32} /> */}
@@ -32,17 +32,19 @@ export default function Footer() {
           <h3 className="text-base font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-sm text-gray-600">
             {[
-              "About Us",
-              "Careers",
-              "Terms & Conditions",
-              "Privacy Policy",
-            ].map((name, idx) => (
-              <li
-                className="cursor-pointer
-              "
-                key={idx}
-              >
-                {name}
+              ["About Us", "/"],
+              ["Careers", "/"],
+              ["Terms & Conditions", "/"],
+              ["Privacy Policy", "/privacy-policy"],
+            ].map(([label, url], idx) => (
+              <li key={idx}>
+                <Link
+                  href={url}
+                  className="cursor-pointer
+                "
+                >
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>

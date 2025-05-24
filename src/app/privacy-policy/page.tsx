@@ -112,7 +112,7 @@ export default function PrivacyPolicy() {
         </div>
       )}
 
-      <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-18">
+      <main className="max-w-8xl mx-auto md:px-4 px-2 sm:px-6 lg:px-8 py-8 mt-18">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Desktop Sidebar - Table of Contents */}
           <aside className="hidden md:block w-64 flex-shrink-0">
